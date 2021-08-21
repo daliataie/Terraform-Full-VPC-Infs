@@ -74,7 +74,9 @@ resource "aws_security_group" "allow_ssh" {
 resource "aws_instance" "my_instance" {
   ami           = "ami-0ac019f4fcb7cb7e6"
   instance_type = "t2.micro"
-  #   key_name = "Lenovo T410"
+  key_name = "admin"
+  
+  
   vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
   subnet_id                   = aws_subnet.public.id
   associate_public_ip_address = true
